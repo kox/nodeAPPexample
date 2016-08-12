@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h1>Profile</h1>
+
+      <p>name: {{name}}</p>
+      <p>email: {{email}}</p>
+      {{#if isAdmin}}
+        <p><span class="label label-default">Admin</span></p>
+      {{/if}}
+      {{^if isAdmin}}
+        <p><span class="label label-default">User</span></p>
+      {{/if}}
+
+      {{^if isAdmin}}
+        <h3>List of users connected</h3>
+
+        {{#if connections}}
+          <ul class="list-group">
+          {{#each connections}}
+            <li class="list-group-item">{{name2}}</li>
+          {{/each}}
+          </ul>
+        {{/if}}
+      {{/if}}
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h1>Connect with another users</h1>
+
+      <div class="row">
+        <div class="col-md-6">
+          <form action="/connect" method="post">
+            <div class="input-group">
+              <input type="text" class="search-input form-control" placeholder="Insert the name of the user" name="search">
+              <span class="input-group-btn">
+                <button class="search-connection btn btn-default" type="submit">Search</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row top-buffer">
+        <div class="col-md-12">
+          {{#if errorMessage }}
+            <div class="alert alert-danger" role="alert">
+              {{#each errorMessage}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/if}}
+
+          {{#if successMessage }}
+            <div class="alert alert-success" role="alert">
+              {{#each successMessage}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/if}}
+        </div>
+      </div>
+
+      {{#if connect}}
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group">
+              <li class="list-group-item">
+                {{connect.name}} ( {{connect.email}} )
+                {{#if connect.connected}}
+                  <a href="/connect/del?email={{connect.email}}&name={{connect.name}}" class="btn btn-default btn-warning btn btn-default btn-success badge">Disconnect</a>
+                {{/if}}
+
+                {{^if connect.connected}}
+                  <a href="/connect/add?email={{connect.email}}&name={{connect.name}}" class="btn btn-default btn-success btn btn-default btn-success badge">Connect</a>
+                {{/if}}
+
+              </li>
+          </ul>
+        </div>
+      </div>
+      {{/if}}
+
+    </div>
+  </div>
+</div>
+
+<script src="/javascripts/connect.js"></script>

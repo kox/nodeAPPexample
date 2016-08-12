@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h1>User Connections</h1>
+
+        {{#each connections}}
+
+          <div class="panel panel-default">
+            <div class="panel-heading">{{name}} ({{email}})</div>
+            <div class="panel-body">
+              {{#each conns}}
+                <p>{{name2}} ({{email2}})</p>
+              {{/each}}
+            </div>
+          </div>
+        {{/each}}
+    </div>
+  </div>
+</div>
